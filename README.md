@@ -8,6 +8,7 @@ This contains code/reports of the project done in course Foundations of Computer
 2. Change directory to the folder/code directory.
 3. Run the following command:
 	```
+		sudo chown www-data www/stolenCookies.txt
 		sudo docker-compose up -d
 	```
 4. Open link: http://localhost:8001/index.php
