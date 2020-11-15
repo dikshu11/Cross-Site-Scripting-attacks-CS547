@@ -164,7 +164,7 @@
 	  		<b>Validate, escape and sanitize user input.</b>:
 	  		<ol>
 	  			<li>Encode HTML before inserting untrusted data into HTML element content.</li>
-	  			<li> Make sure input data, as well as HTML, URLs and JavaScript, is benign and contains no unexpected characters or malicious values that might otherwise comprise an XSS attack. </li>
+	  			<li>Ensure input data and HTML, URLs, and JavaScript are benign and contain no random characters or malicious values that might otherwise comprise an XSS attack. </li>
 	  			<li> Encode the following characters with HTML entity encoding to prevent switching into any execution context, such as script, style, or event handlers.</li>
 	  		</ol>
 	  		 Using hex entities is recommended in the spec. The 5 characters significant in XML (&#x26;, &#x3C;, &#x3E;, &#x22;, &#x27;). 
