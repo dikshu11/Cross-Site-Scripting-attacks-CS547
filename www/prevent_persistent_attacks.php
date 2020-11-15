@@ -95,7 +95,7 @@
 
 			</ul>
 
-			<b> All searches will simply show no results found </b>
+			<b> All searches will simply add a new comment. </b>
 			<br>
 		</div>
 	</div>
