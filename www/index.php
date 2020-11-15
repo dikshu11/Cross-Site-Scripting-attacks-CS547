@@ -76,6 +76,7 @@
 	  	</p>
 	</div>
 
+
 	<div class="w3-container">
 		<form align="center" action="clear_comments.php" method="post">
 			<b> Delete All comments: <input type="submit" name="clear" value="Clear Table" /> </b>
@@ -83,7 +84,125 @@
 		<br>
 	</div>
 
+
 	<div class="w3-container">
+	  <h3><b>XSS Prevention Strategies</b></h3>
+	  <hr>
+	  <p>
+	  		Application built should be robust against all forms of input data, whether obtained from the user, infrastructure, external entities or database systems. Data from the client may be tampered and should never be trusted. <br>
+
+	  		<b><h4>Following checks must be done:</h4></b>
+			<ol>
+				<li><b> Validation: </b>
+					<p>Ensure that the data is strongly typed, correct syntax, within length boundaries, contains only permitted characters, or that numbers are correctly signed and within range boundaries. For example,  Name should not contain &#x3C; character. </p>
+				</li>
+				<li><b>Business rules: </b>
+					<p>Ensure that data is not only validated, but business rule correct. For example, interest rates fall within permitted boundaries</p>
+				</li>
+			</ol>
+			Basically, Data should be:
+			<ul>
+				<li> Strongly typed at all times. </li>
+				<li> Length checked and fields length minimized. </li>
+				<li> Range checked if a numeric. </li>
+				<li>Unsigned unless required to be signed. </li>
+				<li>Syntax or grammar should be checked prior to first use or inspection. </li>
+			</ul>
+	  </p>
+	  <br>
+	  <p>
+	  	<b><h4> Basics Rules to be followed: </h4></b>
+	  	<ol>
+	  		<li>
+	  			<h5>Don’t Insert Untrusted Data Except in Allowed Locations:</h4>
+	  			<p>
+	  				The list of encoding rules gets very complicated because there are so many strange contexts within HTML. We can't think of any good reason to put untrusted data in these contexts. This includes "nested contexts" like a URL inside a JavaScript -- the encoding rules for those locations are tricky and dangerous.
+	  			</p>
+	  			<hr>
+	  		</li>
+	  		<li><h5>HTML Encode Before Inserting Untrusted Data into HTML Element Content:</h5>
+	  			<p>
+	  				Encode the following characters with HTML entity encoding to prevent switching into any execution context, such as script, style, or event handlers. Using hex entities is recommended in the spec. The 5 characters significant in XML (&#x26;, &#x3C;, &#x3E;, &#x22;, &#x27;).
+	  			</p>
+	  			<hr>
+	  		</li>
+	  		<li><h5>Attribute Encode Before Inserting Untrusted Data into HTML Common Attributes:</h5>
+	  			<p>
+	  				All characters with ASCII values less than 256 should be encoded (except alphanumeric) with the "&#xHH;" format (or a named entity if available) to prevent switching out of the attribute.<br>
+	  				Attributes are generally left unquoted. Properly quoted attributes can only be escaped with the corresponding quote. Unquoted attributes can be broken out of with many characters, including [space] % * + , - / ; &#x3C; = &#x3E; ^ and |.
+	  			</p>
+	  			<hr>
+	  		</li>
+	  		<li><h5> JavaScript Encode Before Inserting Untrusted Data into JavaScript Data Values:</h5>
+	  			<p>
+	  				The only safe place to put untrusted data into this code is inside a quoted &#x22;data value.&#x22; Including untrusted data inside any other JavaScript context is quite dangerous, as it is extremely easy to switch into an execution context with characters including (but not limited to) semi-colon, equals, space, plus, and many more, so use with caution.
+	  			</p>
+	  			<hr>
+	  		</li>
+	  		<li><h5> CSS Encode And Strictly Validate Before Inserting Untrusted Data into HTML Style Property Values:</h5>
+	  			<p>
+	  				CSS is surprisingly powerful, and can be used for numerous attacks. Therefore, it's important that we only use untrusted data in a property value and not into other places in style data. We should stay away from putting untrusted data into complex properties like url, behavior.
+	  			</p>
+	  			<hr>
+	  		</li>
+	  		<li><h5>Avoid JavaScript URLs:</h5>
+	  			<p>
+	  				Untrusted URLs that include the protocol javascript: will execute JavaScript code when used in URL DOM locations such as anchor tag HREF attributes or iFrame src locations. We should validate all untrusted URLs to ensure they only contain safe schemes such as HTTPS.<br>
+	  				Data sent via the URL, which is strongly discouraged, should be URL encoded and decoded. This reduces the likelihood of cross-site scripting attacks from working. <br>In general, do not send data via GET request unless for navigational purposes.
+	  			</p>
+	  			<hr>
+	  		</li>
+	  	</ol>
+	  </p>
+
+	</div>
+
+	<div class="w3-container">
+	  <h3><b>HTML Filtering/Encoding</b></h3>
+	  <hr>
+	  	<p> 
+	  		<b>Validate, escape and sanitize user input.</b>:
+	  		<ol>
+	  			<li>Encode HTML before inserting untrusted data into HTML element content.</li>
+	  			<li> Make sure input data, as well as HTML, URLs and JavaScript, is benign and contains no unexpected characters or malicious values that might otherwise comprise an XSS attack. </li>
+	  			<li> Encode the following characters with HTML entity encoding to prevent switching into any execution context, such as script, style, or event handlers.</li>
+	  		</ol>
+	  		 Using hex entities is recommended in the spec. The 5 characters significant in XML (&#x26;, &#x3C;, &#x3E;, &#x22;, &#x27;). 
+
+	  		<br>
+	  		<div style="background-color: grey; width: 25%; margin-left: auto; margin-right: auto; text-align: center;" >
+	  			<p>
+	  			<code>
+		  			 &#x26; --&#x3E; &#x26;amp;<br>
+					 &#x3C; --&#x3E; &#x26;lt;<br>
+					 &#x3E; --&#x3E; &#x26;gt;<br>
+					 &#x22; --&#x3E; &#x26;quot;<br>
+					 &#x27; --&#x3E; &#x26;#x27;<br>
+	  			</code>
+	  		</div>
+	  		<br>
+	  	</p>
+	  	<p>
+	  		Here, we have done HTML encoding on user's data before saving it to database or displaying on the browser. Try Attacking here.
+		  	<ul>
+		  		<li>
+		  			<a  href="prevent_persistent_attacks.php"> Try out persistent attack here </a>
+		  		</li>
+		  		<li> 
+		  			<a  href="prevent_non_persistent_attacks.php"> Try out non persistent attack here </a>
+		  		</li>
+		  		<li> 
+		  			<a  href="prevent_steal_cookies.php"> Try out stealing cookies here </a>
+		  		</li>
+		  	</ul>
+	  	</p>
+	</div>
+
+	
+
+	
+
+	<!-- <div class="w3-container">
 			
 		  <h3><b>Project Updates</b></h3>
 		  <hr>
@@ -92,7 +211,7 @@
 			<li> We are planning to analyse existing ways of preventing and testing XSS attacks in update 2. </li>
 		 </ol>
 	</div>
-
+ -->
 	<div class="w3-container">
 			
 		  <h3><b>Group details</b></h3>

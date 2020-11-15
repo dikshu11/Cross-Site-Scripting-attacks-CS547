@@ -24,6 +24,15 @@
 			echo "Error: Unable to Clear Table". $conn->error;
 		}
 	}
+	if (isset($_POST['clear1'])){
+		$sql = "TRUNCATE TABLE comments1";
+		if ($con->query($sql) === TRUE){
+			echo "Table Cleared";
+		} else {
+			echo "Error: Unable to Clear Table". $conn->error;
+		}
+	}
+
 ?>
 
 

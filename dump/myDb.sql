@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Nov 05, 2020 at 02:10 PM
+-- Generation Time: Nov 15, 2020 at 02:15 PM
 -- Server version: 8.0.22
 -- PHP Version: 7.4.11
 
@@ -29,6 +29,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `comments` (
   `comment` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments1`
+--
+
+CREATE TABLE `comments1` (
+  `comment` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 COMMIT;
 
