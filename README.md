@@ -15,6 +15,6 @@ This contains code/reports of the project done in course Foundations of Computer
 
 
 Check out demo here: 
-[![Sorry demo is not available](video_preview.png)](cross-site-scripting-attacks.mp4 "Simulate Cross-Site Scripting Attacks Demo") 
-
-<!-- [Presentation](cross-site-scripting-attacks.mp4) -->
+<!-- [![Sorry demo is not available](video_preview.png)](cross-site-scripting-attacks.mp4 "Simulate Cross-Site Scripting Attacks Demo") 
+ -->
+[Presentation](cross-site-scripting-attacks.mp4)
