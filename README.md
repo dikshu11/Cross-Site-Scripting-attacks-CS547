@@ -14,7 +14,5 @@ This contains code/reports of the project done in course Foundations of Computer
 4. Open link: http://localhost:8001/index.php
 
 
-Check out demo here: 
-<!-- [![Sorry demo is not available](video_preview.png)](cross-site-scripting-attacks.mp4 "Simulate Cross-Site Scripting Attacks Demo") 
- -->
-[Presentation](cross-site-scripting-attacks.mp4)
+<b> [Check out demo here](cross-site-scripting-attacks.mp4) </b>
+<b> [Check out project report here](XSS_Attacks_CS547.pdf) </b>
