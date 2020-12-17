@@ -18,3 +18,5 @@ This contains code/reports of the project done in course Foundations of Computer
 <b> [Check out demo here](cross-site-scripting-attacks.mp4) </b><br>
 <b> [Check out project report here](XSS_Attacks_CS547.pdf) </b>
 
+![Preview](./video_preview.png)
+
